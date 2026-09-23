@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
 <title>동작구청 AI 행정 플랫폼 — 시연용 목업</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;900&display=swap" rel="stylesheet">
 <style>
 :root{
+  color-scheme: light only;
   --navy:#123B63;          /* 구정 기관색 */
   --navy-deep:#0B2743;
   --gov-blue:#1265AD;
@@ -141,7 +143,7 @@ body.ai-on nav.gnb a.ai-nav{background:rgba(13,143,123,.35);color:#B9F5E9}
 .answer.show{display:block;animation:fadeUp .35s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .answer .q{font-weight:700;font-size:.92rem;color:var(--gov-blue);margin-bottom:10px}
-.answer .a{font-size:.94rem;white-space:pre-wrap}
+.answer .a{font-size:.94rem;white-space:pre-wrap;color:var(--ink)}
 .answer .a .cursor{display:inline-block;width:8px;height:1.05em;background:var(--ai);vertical-align:text-bottom;animation:blink .8s steps(1) infinite;margin-left:2px}
 @keyframes blink{50%{opacity:0}}
 .src-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
@@ -184,7 +186,7 @@ main{max-width:1120px;margin:0 auto;padding:48px 24px 20px}
 .rec:hover,.rec[aria-expanded="true"]{border-color:var(--ai)}
 .rec:focus-visible{outline:2px solid var(--ai)}
 .rec .date{flex:none;font-size:.75rem;color:var(--sub);width:82px}
-.rec .title{font-weight:700;font-size:.92rem;flex:1}
+.rec .title{font-weight:700;font-size:.92rem;flex:1;color:var(--ink)}
 .rec .go{flex:none;font-size:.78rem;color:var(--ai);font-weight:700}
 .summary{
   display:none;border:1px solid var(--ai-line);background:var(--ai-soft);
@@ -193,7 +195,8 @@ main{max-width:1120px;margin:0 auto;padding:48px 24px 20px}
 .summary.show{display:block;animation:fadeUp .3s ease}
 .summary h4{font-size:.82rem;color:#0A6E5F;margin-bottom:8px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .summary ul{list-style:none;display:grid;gap:8px}
-.summary li{font-size:.9rem;padding-left:20px;position:relative}
+.summary li{font-size:.9rem;padding-left:20px;position:relative;color:var(--ink)}
+.summary li b{color:#075E51}
 .summary li::before{content:'';position:absolute;left:4px;top:.55em;width:7px;height:7px;border-radius:2px;background:var(--ai)}
 .kw-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 .kw{background:#fff;border:1px solid var(--ai-line);color:#0A6E5F;font-size:.72rem;font-weight:700;border-radius:20px;padding:3px 10px}
@@ -214,7 +217,8 @@ main{max-width:1120px;margin:0 auto;padding:48px 24px 20px}
 .check-btn:focus-visible{outline:3px solid var(--ai-line)}
 .result-box{border:1px solid var(--line);border-radius:10px;padding:18px;min-height:220px;background:#fff}
 .result-box .placeholder{color:#9AA9BE;font-size:.86rem;text-align:center;padding-top:70px}
-.check-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.86rem;opacity:0;animation:fadeUp .4s ease forwards}
+.check-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.86rem;color:var(--ink);opacity:0;animation:fadeUp .4s ease forwards}
+.check-item b{color:var(--ink)}
 .check-item:last-child{border-bottom:none}
 .check-item .stat{flex:none;font-weight:900;font-size:.78rem;border-radius:6px;padding:2px 8px;height:fit-content}
 .stat.ok{background:#E7F5EC;color:#1B7A3D}
@@ -246,7 +250,8 @@ main{max-width:1120px;margin:0 auto;padding:48px 24px 20px}
 .civic-copy h3{font-size:1.05rem;font-weight:900;color:var(--navy);margin-bottom:10px}
 .civic-copy p{font-size:.9rem;color:var(--sub);margin-bottom:14px}
 .civic-copy ul{list-style:none;display:grid;gap:10px}
-.civic-copy li{font-size:.88rem;padding-left:24px;position:relative}
+.civic-copy li{font-size:.88rem;padding-left:24px;position:relative;color:var(--ink)}
+.civic-copy li b{color:#0A6E5F}
 .civic-copy li::before{content:'✓';position:absolute;left:2px;color:var(--ai);font-weight:900}
 .chat{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
@@ -257,7 +262,7 @@ main{max-width:1120px;margin:0 auto;padding:48px 24px 20px}
 .chat-log{flex:1;padding:16px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;background:#FBFCFE;max-height:340px}
 .msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:.86rem;opacity:0;animation:fadeUp .3s ease forwards}
 .msg.user{align-self:flex-end;background:var(--gov-blue);color:#fff;border-bottom-right-radius:4px}
-.msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;color:var(--ink)}
 .msg.bot b{color:var(--ai)}
 .chat-actions{padding:12px 16px;border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
 .chat-actions button{
